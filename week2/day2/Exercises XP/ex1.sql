@@ -34,7 +34,7 @@ FROM customer
 ORDER BY first_name DESC;
 
 -- Write a query to get the film ID, title, description, year of release and rental rate in ascending order according to their rental rate.
-SELECT film_id, title, description, release_year, rental_rate
+SELECT cdfilm_id, title, description, release_year, rental_rate
 FROM film
 ORDER BY rental_rate ASC;
 
