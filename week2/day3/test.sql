@@ -47,7 +47,7 @@ CREATE TABLE customer_review (
 
 -- Add 2 movie reviews. Make sure you link them to valid objects in the other tables.
 
-INSERT INTO customer_review (film_id, language_id, title, score, review_text) 
+SELECT * FROM languageSELECT * FROM languageSELECT * FROM languageINSERT INTO customer_review (film_id, language_id, title, score, review_text) 
 VALUES 
     (1, 1, 'Mind-Blowing Experience', 10, 'One of the best sci-fi movies ever made.'),
     (2, 2, 'Masterpiece of Space Exploration', 9, 'A stunning visual journey through the universe.');
