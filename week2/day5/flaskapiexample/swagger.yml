@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: Menu API
+  version: "1.0"
+  description: API to manage restaurant menu items
+
+paths:
+  /items:
+    get:
+      operationId: app.get_all_items
+      summary: Get all items
+      responses:
+        "200":
+          description: A list of menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    price:
+                      type: integer
+
+    post:
+      operationId: app.create_item
+      summary: Add a new menu item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - price
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+      responses:
+        "201":
+          description: Item created successfully
+        "400":
+          description: Invalid input
+
+  /items/{name}:
+    get:
+      operationId: app.get_item
+      summary: Get a specific menu item
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A single menu item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  price:
+                    type: integer
+        "404":
+          description: Item not found
+
+    put:
+      operationId: app.update_item
+      summary: Update a menu item
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+      responses:
+        "200":
+          description: Item updated successfully
+        "404":
+          description: Item not found
+
+    delete:
+      operationId: app.delete_item
+      summary: Delete a menu item
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Item deleted successfully
+        "404":
+          description: Item not found
