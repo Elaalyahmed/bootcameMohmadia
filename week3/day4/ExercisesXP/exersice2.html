@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First name:</label><br />
+      <input type="text" id="fname" name="firstname" /><br />
+      <label for="lname">Last name:</label><br />
+      <input type="text" id="lname" name="lastname" /><br /><br />
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+    <ul class="usersAnswer"></ul>
+
+    <script>
+      const form = document.querySelector('form')
+      console.log("Form:", form);
+      const fname = document.getElementById("fname"),
+        lname = document.getElementById("lname");
+      console.log("ID fname:", fname, "ID lname:", lname);
+      console.log(
+        "Name firstname:",
+        document.getElementsByName("firstname")[0],
+        "Name lastname:",
+        document.getElementsByName("lastname")[0]
+      );
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const ul = document.querySelector(".usersAnswer");
+        ul.innerHTML = "";
+        const fv = fname.value.trim(),
+          lv = lname.value.trim();
+        if (fv)
+          ul.appendChild(
+            Object.assign(document.createElement("li"), {
+              textContent: `First name: ${fv}`,
+            })
+          );
+        if (lv)
+          ul.appendChild(
+            Object.assign(document.createElement("li"), {
+              textContent: `Last name: ${lv}`,
+            })
+          );
+      });
+    </script>
+  </body>
+</html>

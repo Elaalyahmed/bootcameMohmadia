@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Mad Libs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      input {
+        margin: 5px;
+        padding: 5px;
+        width: 150px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px 5px;
+        cursor: pointer;
+      }
+      #story {
+        background: #f0f0f0;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+        min-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label><input type="text" id="noun" /><br />
+      <label for="adjective">Adjective:</label
+      ><input type="text" id="adjective" /><br />
+      <label for="person">Someone's Name:</label
+      ><input type="text" id="person" /><br />
+      <label for="verb">Verb:</label><input type="text" id="verb" /><br />
+      <label for="place">A place:</label><input type="text" id="place" /><br />
+      <button type="button" id="lib-button">Lib it!</button>
+    </form>
+
+    <p>
+      Generated story:
+      <span id="story"></span>
+    </p>
+
+    <script>
+      function makeStory() {
+        let noun = document.getElementById("noun").value;
+        let adjective = document.getElementById("adjective").value;
+        let person = document.getElementById("person").value;
+        let verb = document.getElementById("verb").value;
+        let place = document.getElementById("place").value;
+
+        if (!noun || !adjective || !person || !verb || !place) {
+          alert("Please fill in all fields!");
+          return;
+        }
+        let story = `Once upon a time, ${person} had a ${adjective} ${noun}.
+        ${person} decided to ${verb} to ${place} with the ${noun}.
+          The ${adjective} ${noun} made everyone at ${place} very happy!`;
+
+        document.getElementById("story").innerHTML = story;
+      }
+
+      document.getElementById("lib-button").addEventListener("click", makeStory);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sphere Volume</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        label, input { display: block; margin-bottom: 10px; }
+        #result { color: red; }
+    </style>
+</head>
+<body>
+    <form id="MyForm">
+        <label for="radius">Radius:</label>
+        <input type="text" id="radius" required>
+        <label for="volume">Volume:</label>
+        <input type="text" id="volume" readonly>
+        <input type="submit" value="Calculate">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('MyForm');
+        const radius = document.getElementById('radius');
+        const volume = document.getElementById('volume');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const r = parseFloat(radius.value);
+            if (isNaN(r) || r < 0) {
+                result.textContent = "Enter a valid positive number.";
+            } else {
+                const vol = (4 / 3) * Math.PI * r ** 3;
+                volume.value = vol.toFixed(2);
+                result.textContent = `Volume: ${vol.toFixed(2)} cubic units`;
+            }
+        });
+    </script>
+</body>
+</html>
