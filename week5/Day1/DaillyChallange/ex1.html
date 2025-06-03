@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const morse = `{
+  "0": "-----",
+  "1": ".----",
+  "2": "..---",
+  "3": "...--",
+  "4": "....-",
+  "5": ".....",
+  "6": "-....",
+  "7": "--...",
+  "8": "---..",
+  "9": "----.",
+  "a": ".-",
+  "b": "-...",
+  "c": "-.-.",
+  "d": "-..",
+  "e": ".",
+  "f": "..-.",
+  "g": "--.",
+  "h": "....",
+  "i": "..",
+  "j": ".---",
+  "k": "-.-",
+  "l": ".-..",
+  "m": "--",
+  "n": "-.",
+  "o": "---",
+  "p": ".--.",
+  "q": "--.-",
+  "r": ".-.",
+  "s": "...",
+  "t": "-",
+  "u": "..-",
+  "v": "...-",
+  "w": ".--",
+  "x": "-..-",
+  "y": "-.--",
+  "z": "--..",
+  ".": ".-.-.-",
+  ",": "--..--",
+  "?": "..--..",
+  "!": "-.-.--",
+  "-": "-....-",
+  "/": "-..-.",
+  "@": ".--.-.",
+  "(": "-.--.",
+  ")": "-.--.-"
+}`;
+
+      // Function 1: Converts JSON string to JS object
+      function toJs() {
+        return new Promise((resolve, reject) => {
+          try {
+            const morseObj = JSON.parse(morse);
+            if (Object.keys(morseObj).length === 0) {
+              reject("Morse object is empty");
+            } else {
+              resolve(morseObj);
+            }
+          } catch {
+            reject("Invalid JSON");
+          }
+        });
+      }
+
+      // Function 2: Gets user input and translates to Morse array
+      function toMorse(morseJS) {
+        return new Promise((resolve, reject) => {
+          const userInput = prompt(
+            "Enter a word or sentence to convert to Morse code:"
+          ).toLowerCase();
+
+          if (!userInput) {
+            reject("No input provided.");
+            return;
+          }
+
+          const morseArray = [];
+
+          for (let char of userInput) {
+            if (char === " ") {
+              morseArray.push(" "); // preserve space
+            } else if (morseJS[char]) {
+              morseArray.push(morseJS[char]);
+            } else {
+              reject(`Character "${char}" cannot be translated to Morse code.`);
+              return;
+            }
+          }
+
+          resolve(morseArray);
+        });
+      }
+
+      // Function 3: Displays Morse translation on the page
+      function joinWords(morseTranslation) {
+        const output = document.createElement("div");
+        output.innerHTML = morseTranslation.join("<br>");
+        output.style.fontFamily = "monospace";
+        output.style.marginTop = "20px";
+        document.body.appendChild(output);
+      }
+
+      // Chain the functions
+      toJs()
+        .then((morseJS) => toMorse(morseJS))
+        .then((morseArray) => joinWords(morseArray))
+        .catch((error) => {
+          const errorDiv = document.createElement("div");
+          errorDiv.textContent = `Error: ${error}`;
+          errorDiv.style.color = "red";
+          document.body.appendChild(errorDiv);
+        });
+    </script>
+  </body>
+</html>
