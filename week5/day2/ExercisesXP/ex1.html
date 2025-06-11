@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy Search - Hilarious</title>
+  <style>
+    /* body { font-family: sans-serif; }
+    img { margin: 10px; border-radius: 8px; } */
+  </style>
+</head>
+<body>
+
+  <h1>Hilarious GIFs</h1>
+  <div id="gif-container"></div>
+
+  <script>
+    const apiURL = "https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+
+    fetch(apiURL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP Error: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const gifs = data.data;
+        const container = document.getElementById("gif-container");
+
+        gifs.forEach(gif => {
+          const img = document.createElement("img");
+          img.src = gif.images.fixed_height.url; 
+          img.alt = gif.title;
+          container.appendChild(img);
+        });
+      })
+      .catch(error => {
+        console.error("Fetch error:", error);
+      });
+  </script>
+
+</body>
+</html>
+
