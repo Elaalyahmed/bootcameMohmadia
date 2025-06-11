@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-           const apiKey = "dc6zaTOxFJmzC"; 
+const apiKey = "dYD2Yeevw2fE4DL3MaMP8aQ57eNIP3Vd"; 
 const query = "sun";
 const limit = 10;
 const offset = 2;
@@ -27,8 +18,3 @@ fetch(url)
   .catch(error => {
     console.error("An error occurred while fetching GIFs:", error);
   });
-
-    </script>
-    
-</body>
-</html>
