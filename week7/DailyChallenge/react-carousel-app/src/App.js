@@ -6,7 +6,7 @@ import img2 from './image/IMAG2.webp';
 import img3 from './image/IMAG3.webp';
 import img4 from './image/IMAG4.webp';
 
-function App() {
+  export default function App() {
   return (
     <div className="App" style={{ width: "60%", margin: "auto", marginTop: "30px" }}>
       <h2>Travel Destinations</h2>
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+  
