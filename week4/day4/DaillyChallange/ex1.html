@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <form id="youd" method="post">
+    <form id="form" method="post">
       <label for="name">Name:</label>
       <input type="text" id="name" /><br /><br />
       <label for="lastname">Last name</label>
@@ -16,20 +16,20 @@
     <div id="result"></div>
 
     <script>
-      const form = document.getElementById("youd");
+      const form = document.getElementById("form");
       const result = document.getElementById("result");
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const nameV = document.getElementById("name");
-        const lstname = document.getElementById("lastname");
+        const name = document.getElementById("name").value;
+        const lastname = document.getElementById("lastname").value;
+        console.log(name + lastname);
 
         const jsonData = {
           name: name,
-          lastname: lastname
-        
-        }
+          lastame: lastname,
+        };
         result.textContent = JSON.stringify(jsonData);
       });
     </script>
