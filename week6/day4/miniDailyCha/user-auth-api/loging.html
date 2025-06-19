@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required /><br />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      /><br />
+      <button type="submit" id="loginBtn" disabled>Login</button>
+    </form>
+    <div id="loginMessage"></div>
+
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const loginInputs = loginForm.querySelectorAll("input");
+      const loginBtn = document.getElementById("loginBtn");
+      const loginMessage = document.getElementById("loginMessage");
+
+      // Enable/disable button based on input
+      loginForm.addEventListener("input", () => {
+        loginBtn.disabled = ![...loginInputs].every((input) =>
+          input.value.trim()
+        );
+      });
+
+      // Handle form submission
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const response = await fetch("/users/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          });
+
+          const data = await response.json();
+          loginMessage.textContent = response.ok
+            ? `Welcome back, ${username}!`
+            : data.message || "Login failed";
+        } catch (error) {
+          loginMessage.textContent = "Error during login";
+        }
+      });
+    </script>
+  </body>
+</html>
