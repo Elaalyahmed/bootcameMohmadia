@@ -1,5 +1,5 @@
 from menu_item import MenuItem
-from week2.day4.exersice1.menu_manager import MenuManager
+from menu_manager import MenuManager
 
 def show_user_menu():
     """Display the program menu and get the user's choice."""
