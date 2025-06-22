@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Car from "./components/Car";
+import Garage from "./components/Garage";
+import Event from "./components/Event";
 
-function App() {
+
+ export default function App() {
+  const carInfo = {model: "Mustang" };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <Car carInfo={carInfo}/>
+      <Garage size={'small'}/>
+      <Event/>
 
-export default App;
+    </div>
+  )
+}

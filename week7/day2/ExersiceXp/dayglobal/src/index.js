@@ -1,22 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Fruits from './components/Fruit'
+// import Fruits from './components/Fruit'
 // import './index.css';
 // import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const fruitArray = [
-  "banana",
-  "Orange",
-  "Mongue",
-  "Apple",
-  
-]
+
   
 
 root.render(
   <React.StrictMode>
-    <Fruits fruits={fruitArray} />
+    <App />
   </React.StrictMode>
 );
 
