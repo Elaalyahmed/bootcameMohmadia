@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  /* background-color: #f9f9f9; */
+}
+
+.app-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.language-card {
+  background-color: #edd818;
+  border: 1px solid #525151;
+  border-radius: 10px;
+  padding: 20px;
+  /* width: 300px; */
+  max-width: 50%;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+}
+
+.vote-count {
+  font-size: 22px;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.vote-btn {
+  /* background-color: #28a745; */
+  color: #28a745;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.8rem;
+}
+
+/* .vote-btn:hover {
+  background-color: #218838;
+} */
