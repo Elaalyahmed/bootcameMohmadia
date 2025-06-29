@@ -1,0 +1,32 @@
+/* App.css */
+.app-container {
+  min-height: 100vh;
+}
+
+/* Navbar hover effects */
+.navbar-nav .nav-item:hover {
+  background-color: #4444db;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  color: white !important;
+}
+
+/* Active link styling */
+.nav-link.active {
+  font-weight: bold;
+  color: #4444db !important;
+}
+
+/* Error boundary styles */
+.error-boundary {
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-boundary h1 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
