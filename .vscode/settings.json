@@ -11,5 +11,11 @@
       "connectionTimeout": 30
     }
   ],
-  "cSpell.words": ["noopener", "noreferrer", "todofile"]
+  "cSpell.words": [
+    "noopener",
+    "noreferrer",
+    "todofile"
+  ],
+  "IDX.aI.enableInlineCompletion": true,
+  "IDX.aI.enableCodebaseIndexing": true
 }
