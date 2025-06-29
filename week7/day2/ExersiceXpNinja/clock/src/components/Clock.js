@@ -23,6 +23,9 @@ export default function Clock() {
                 fontSize:"22px",
                 fontWeight:"700"
             }}>It is {currentDate.toLocaleTimeString()}</span>
+            <br/>
+            <br/>
+            <br/>
         </div>
 
     )
