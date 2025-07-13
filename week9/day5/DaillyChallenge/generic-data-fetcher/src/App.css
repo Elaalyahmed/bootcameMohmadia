@@ -1,0 +1,86 @@
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Loading and Error States */
+.loading {
+  color: #2196F3;
+  padding: 15px;
+  background-color: #E3F2FD;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.error {
+  color: #D32F2F;
+  padding: 15px;
+  background-color: #FFEBEE;
+  border-radius: 4px;
+}
+
+/* Data Display */
+.data-container {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background-color: #FAFAFA;
+}
+
+.data-container h2 {
+  color: #2C3E50;
+  margin-top: 0;
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 12px 15px;
+  margin: 8px 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Status Indicators */
+.completed-true {
+  color: #388E3C;
+}
+
+.completed-false {
+  color: #F57C00;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+  
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Animation for loading state */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+}
